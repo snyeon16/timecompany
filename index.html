@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>TIME COMPANY</title>
+        <style>
+            html, body{
+                scroll-behavior: smooth;
+                margin:0;
+                padding:0;
+            }
+            @font-face{
+                font-family:Arial, Helvetica, sans-serif;
+            }
+            .menubar{
+                background-color: #000000;
+                position:fixed;
+                width: 100%; height: 110px; 
+                z-index: 1000;}
+            .menuwords{
+                position:fixed;
+                display: flex;
+                justify-content: center;
+                width: 100%; 
+                height:110px;
+                align-items: center;
+                color : #ffffff;
+                font-size : 22px;
+                line-height:1.6;
+                z-index: 1001;
+            }
+            .menuwords ul {
+              
+            display:flex;
+            list-style-type: none; /* 기본 점(bullet) 제거 */
+            padding: 0;
+            margin: 0;
+        }
+        .menuwords ul li {
+            display: flex; 
+            margin: 0 auto; /* 각 항목 사이에 간격 추가 */
+            align-items:center;
+        }
+        .menuwords ul li a{
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14.5px 200px;
+        }
+        .menuwords ul li:hover{
+            cursor: pointer;
+        } 
+        .logomotion{
+            position:relative;
+            top: 20px;
+            display:grid;
+            place-items: center;
+            z-index: 0;
+        }
+        
+        .copyright{
+            font-size: 15px;
+            color:#ffffff;
+            position:relative;
+            text-align: right;
+            margin-top: 100px;
+            margin-right: 100px;
+            margin-bottom: 100px;
+        }
+        </style>
+    </head>
+    <body bgcolor="#000000">
+        
+        <div class="menubar"></div>
+        <div class="menuwords"><ul>
+            <li><a href="threedlogo.html"><img src="logoicon.png" width="70px"></a></li>
+            <li><a href="about.html">DETAILS</a></li>
+            <li style="margin-top: 10px;"><a href="index.html"><img src="maintitle.png" width="120px"></a></li>
+            <li><a href="work.html">WORK</a></li>
+            <li><a href="stationary.html"><img src="bag.png" width="65px"></a></li>
+        </ul></div>
+        <div class="logomotion">
+            <video src="logomotion.mp4" autoplay muted loop width="2000px" ></video>
+        </div>
+        <div class="copyright" style="margin-top: 400px;">
+           <br><br><br><br><br><br><br><br><br><br><br><br><br><br> © TIME COMPANY
+        </div>
+      
+    </body>
+    </html>

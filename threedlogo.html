@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>TIMECOMPANY</title>
+        <style>
+            html, body { margin:0px; height: 100%; }
+            #back{
+                position:absolute;
+                margin-top: 35px;
+                margin-left: 85px;
+                cursor: pointer;
+            }
+           
+        </style>
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.169.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.169.0/examples/jsm/"
+            }
+        }
+        </script>
+    </head>
+<body bgcolor="#c0c0c0">
+    <div id="back" onClick="goToindex"><img src="back.png" width=40px></div>
+   
+    <script type="module">
+        
+        import * as THREE from 'three';
+
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+scene.background = new THREE.Color( 0xffffff );
+camera.position.z = 15;
+
+// 앰비언트 조명 설치
+var ambient = new THREE.AmbientLight( 0xffffff , 10);
+scene.add( ambient );
+
+// 비어있는 3D 오브젝트 그룹 하나 만들기
+var group = new THREE.Object3D();
+var hourModel = new THREE.Object3D();
+var minModel = new THREE.Object3D();
+var secModel = new THREE.Object3D();
+
+const loader = new GLTFLoader(); 
+loader.load(
+    'hour.glb' ,   // 3D 파일 이름
+    function ( hour ) {   // 3D 파일 로딩됐을 때 처리할 곳
+        hourModel.add(hour.scene); // 3D 파일 불러와서 group에 담기
+    },
+    function ( xhr ) {
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); // 로딩 과정 표기
+    },
+    function ( error ) {
+        console.log( 'An error happened' ); // 로딩 에러 표기
+    }
+);
+loader.load(
+    'min.glb' ,   // 3D 파일 이름
+    function ( min ) {   // 3D 파일 로딩됐을 때 처리할 곳
+        minModel.add( min.scene); // 3D 파일 불러와서 group에 담기
+        
+    },
+    function ( xhr ) {
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); // 로딩 과정 표기
+    },
+    function ( error ) {
+        console.log( 'An error happened' ); // 로딩 에러 표기
+    }
+);
+loader.load(
+    'sec.glb' ,   // 3D 파일 이름
+    function ( sec ) {   // 3D 파일 로딩됐을 때 처리할 곳
+        
+        secModel.add( sec.scene); // 3D 파일 불러와서 group에 담기
+    },
+    function ( xhr ) {
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' ); // 로딩 과정 표기
+    },
+    function ( error ) {
+        console.log( 'An error happened' ); // 로딩 에러 표기
+    }
+);
+
+hourModel.scale.set(0.5,0.5,0.5);
+minModel.scale.set(0.5,0.5,0.5);
+secModel.scale.set(0.5,0.5,0.5);
+scene.add(hourModel);  // 모델 크기 다섯 배로 키우기
+//scene.add(group);  // scene에 모델 담기
+scene.add(minModel); 
+scene.add(secModel);
+
+// 스포트 조명 설치
+//var light = new THREE.SpotLight( 0xfd86fa, 2000, 0, Math.PI / 2 );
+//light.position.set( 4, 15, 5 );
+//light.target.position.set( 0, 0, 0 );
+//scene.add( light );
+
+
+
+// 마우스 콘트롤 넣어보기
+const controls = new OrbitControls( camera, renderer.domElement );
+
+
+
+var animate = function () {
+    requestAnimationFrame( animate );
+    //group.rotation.x += 0.01
+    hourModel.rotation.x =0.5;
+    hourModel.rotation.z +=0.005;
+    minModel.rotation.z +=-0.01;
+    secModel.rotation.z +=0.02;
+    secModel.rotation.y =0.007;
+    secModel.rotation.x =1;
+    renderer.render(scene, camera);
+    
+
+    // 마우스 콘트롤 상시 제어
+    controls.update();
+};
+
+animate();
+
+const clickableDiv = document.getElementById('back');
+clickableDiv.addEventListener('click', () => {
+  window.location.href = 'index.html'; // 이동할 URL
+});
+
+</script>
+</body>
+</html>

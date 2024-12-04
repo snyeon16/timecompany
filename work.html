@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>TIME COMPANY</title>
+        <style>
+            html, body{
+                scroll-behavior: smooth;
+                margin:0;
+                padding:0;
+            }
+            @font-face{
+                font-family:Arial, Helvetica, sans-serif;}
+                .menubar{
+                background-color: #000000;
+                position:fixed;
+                width: 100%; height: 110px; 
+                z-index: 1000;}
+                .menubar{
+                background-color: #000000;
+                position:fixed;
+                width: 100%; height: 110px; 
+                z-index: 1000;}
+                .menuwords{
+                position:fixed;
+                display: flex;
+                justify-content: center;
+                width: 100%; 
+                height:110px;
+                align-items: center;
+                color : #ffffff;
+                font-size : 22px;
+                line-height:1.6;
+                z-index: 1001;
+            }
+            .menuwords ul {
+              
+            display:flex;
+            list-style-type: none; /* 기본 점(bullet) 제거 */
+            padding: 0;
+            margin: 0;
+        }
+        .menuwords ul li {
+            display: flex; 
+            margin: 0 auto; /* 각 항목 사이에 간격 추가 */
+            align-items:center;
+        }
+        .menuwords ul li a{
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14.5px 200px;
+        }
+        .menuwords ul li:hover{
+            cursor: pointer;
+        }
+        
+        .layout {
+            place-items: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+             grid-template-rows:  1fr 1fr 1fr 1fr 1fr ;
+            
+
+
+        }
+        .images {
+            margin-top: 200px;
+            display: grid;
+                        
+        }
+
+        .images:hover{
+            cursor: pointer;
+        }
+
+        .copyright{
+            font-size: 15px;
+            color:#ffffff;
+            position:relative;
+            text-align: right;
+            margin-top: 100px;
+            margin-right: 100px;
+            margin-bottom: 100px;
+        }
+        </style>
+    </head>
+    <body bgcolor="#000000">
+        
+        <div class="menubar"></div>
+        <div class="menuwords"><ul>
+            <li><a href="threedlogo.html"><img src="logoicon.png" width="70px"></a></li>
+            <li><a href="about.html">DETAILS</a></li>
+            <li style="margin-top: 10px;"><a href="index.html"><img src="maintitle.png" width="120px"></a></li>
+            <li><a href="work.html">WORK</a></li>
+            <li><a href="stationary.html"><img src="bag.png" width="65px"></a></li>
+        </ul></div>
+        <div class="layout">
+            
+            <div class=" images">
+
+                <img src="work_ballet.jpg" width="900px">
+            </div>
+            <div class=" images">
+
+                <img src="work_mg.jpg" width="900px">
+            </div>
+            <div class=" images">
+               
+                <img src="boogie man.png" width="900px">
+            </div>
+            
+            
+            <div class=" images">
+                <img src="everything black.png" width="900px">
+            </div> 
+            <div class=" images">
+                <img src="stopmotion.png" width="900px">
+            </div>
+            
+            <div class=" images">
+                <img src="cover.png" width="900px">
+            </div>
+           <div class=" images">
+               
+                <img src="work_triangle.png" width="900px">
+            </div>
+            <div class=" images">
+                <img src="pigeon.png" width="900px">
+            </div>
+            <div class=" images">
+                <img src="movingposter.png" width="900px">
+            </div>
+            <div class=" images">
+                <img src="hyopung.jpg" width="900px">
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © TIME COMPANY
+        </div>
+        
+    </body>
+    </html>
